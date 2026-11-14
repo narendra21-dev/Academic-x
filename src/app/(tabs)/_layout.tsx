@@ -300,7 +300,13 @@ export default function TabsLayout() {
       tabBar={(props) => (
         <CustomTabBar
           state={props.state}
-          navigateToTab={(routeName) => router.navigate(routeName as Href)}
+          navigateToTab={(routeName) =>
+            router.navigate(
+              (routeName === "index"
+                ? "/(tabs)"
+                : `/(tabs)/${routeName}`) as Href
+            )
+          }
         />
       )}
       screenOptions={{
